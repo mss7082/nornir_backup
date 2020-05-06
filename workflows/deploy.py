@@ -5,20 +5,23 @@ from pprint import pprint
 from nornir.plugins.tasks import networking, text
 from nornir.plugins.functions.text import print_result
 from nornir.core.filter import F
-from nornir.plugins.tasks.version_control import gitlab
+from pygit2 import clone_repository
+
 import logging
 
 
 def main():
     template = "interfaces.j2"
+
     nr = InitNornir(config_file="../config.yaml")
     # pprint(nr.inventory.get_inventory_dict()["hosts"])
-    juniper = nr.filter(platform="junos")
+
+    juniper = nr.filter(F(platform="junos"))
     # pprint(juniper.inventory.get_hosts_dict())
     # rgit = juniper.run(task=get_template, template=template)
     # print_result(rgit)
-    rconfig = juniper.run(task=push_config, template=template)
-    print_result(rconfig)
+    config = juniper.run(task=push_config, template=template)
+    print_result(config)
 
 
 # def get_template(task, template):
