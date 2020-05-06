@@ -1,0 +1,10 @@
+---
+- get_facts:
+    os_version: 19.3R1.8
+
+- get_interfaces_ip:
+    fxp0.0:
+      ipv4:
+        172.16.1.11:
+          prefix_length: 24
+
