@@ -5,7 +5,6 @@ from pprint import pprint
 from nornir.plugins.tasks import networking, text
 from nornir.plugins.functions.text import print_result
 from nornir.core.filter import F
-from pygit2 import clone_repository
 
 import logging
 
