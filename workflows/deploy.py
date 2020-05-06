@@ -1,4 +1,4 @@
-#!/home/gns3/workspace/Nornir/.venv/bin/python
+#!/home/gns3/virtualenvs/nornir/bin/python
 
 from nornir import InitNornir
 from pprint import pprint
